@@ -13,8 +13,8 @@ import org.springframework.jmx.support.RegistrationPolicy;
 import com.github.tobato.fastdfs.FdfsClientConfig;
 
 
-@Configuration
-@Import(FdfsClientConfig.class)
-@EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
+@Configuration   //标注为配置类
+@Import(FdfsClientConfig.class)  //引入fastdfs配置类
+@EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)  //解决jmx重复注册bean的问题
 public class ComponetImport {
 }

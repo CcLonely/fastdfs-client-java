@@ -41,14 +41,13 @@ public class FastdfsClientJavaApplicationTests {
         } catch (IOException e) {
  e.printStackTrace();
         }
-      //上传
-       // StorePath storePath = defaultGenerateStorageClient.uploadFile("group1", fileInputStream, file.length(), "jpg"); //上传文件
- //logger.debug(storePath);
-    //    System.out.println(storePath);
-//StorePath [group=group1, path=M00/00/00/wKiFgFm9CRmAUTcTAAAkvvmVy_E865.png]
+         //上传
+         // StorePath storePath = defaultGenerateStorageClient.uploadFile("group1", fileInputStream, file.length(), "jpg"); //上传文件
+        //logger.debug(storePath);
+         //    System.out.println(storePath);
+        //StorePath [group=group1, path=M00/00/00/wKiFgFm9CRmAUTcTAAAkvvmVy_E865.png]
         //删除
        defaultGenerateStorageClient.deleteFile("group1", "M00/00/00/wKhAgFvX_vOAPMTdAAfqZVr-3og723.jpg");//删除文件
-
  }
     @Test
     public void Test01(){
@@ -56,19 +55,15 @@ public class FastdfsClientJavaApplicationTests {
         System.out.println(fiele);//source_ip_addr = 192.168.133.128, file_size = 9406, create_timestamp = 1970-01-18 18:12:40, crc32 = -107623439
         List<GroupState> list = defaultTrackerClient.listGroups();//获取组名
         System.out.println("123"+list);
-/**[GroupState [groupName=group1, totalMB=18421, freeMB=14731, trunkFreeMB=0, storageCount=1, 
- storagePort=23000, storageHttpPort=8888, activeCount=1, currentWriteServer=0, storePathCount=1, 
- subdirCountPerPath=256, currentTrunkFileId=0]]
- **/
     }
 
     @Test
     public void testDownload() {
         try {
 
-            byte[] b = downloadFile("group1/M00/00/00/wKhAgFvXxfyAMc5jAAfqZVr-3og038.jpg");
+            byte[] b = downloadFile("group1/M00/00/00/wKhAgFvaoYGAFqP3AAfqZVr-3og040.jpg");
             System.out.println(b);
-           IOUtils.write(b, new FileOutputStream("D:/"+UUID.randomUUID().toString()+".jpg"));
+           IOUtils.write(b, new FileOutputStream("C:/Users/Administrator/Downloads/"+UUID.randomUUID().toString()+".jpg"));
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -88,6 +83,7 @@ public class FastdfsClientJavaApplicationTests {
         DownloadByteArray downloadByteArray = new DownloadByteArray();
         byte[] bytes = defaultGenerateStorageClient.downloadFile(group, path, downloadByteArray);
         return bytes;
+
     }
 
 }
